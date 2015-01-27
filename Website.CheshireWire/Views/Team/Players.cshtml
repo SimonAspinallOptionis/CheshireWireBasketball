@@ -1,0 +1,305 @@
+﻿@using Website.CheshireWire.Models;
+
+@{
+    ViewBag.Title = "Players";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 13&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="active"><a href="#white" data-toggle="tab">White</a></li>
+            <li class="divider"></li>
+            <li><a href="#green" data-toggle="tab">Green</a></li>
+        </ul>
+    </li>
+    <li><a href="#under14" data-toggle="tab">Under 14</a></li>
+    <li><a href="#under15" data-toggle="tab">Under 15</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 16&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference16" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier16" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 18&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference18" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier18" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="white">
+        @{
+            var rosterWhite = (List<Player>)ViewBag.Under13WhiteRoster;
+        }
+        @if (rosterWhite.Count > 0)
+        {
+            foreach (var player in rosterWhite)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="tab-pane fade in" id="green">
+        @{
+            var rosterGreen = (List<Player>)ViewBag.Under13GreenRoster;
+        }
+        @if (rosterGreen.Count > 0)
+        {
+            foreach (var player in rosterGreen)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 13 Green Under Construction
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="under14">
+        @{
+            var roster14 = (List<Player>)ViewBag.Under14Roster;
+        }
+        @if (roster14.Count > 0)
+        {
+            foreach (var player in roster14)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 14 Under Construction
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="under15">
+        @{
+            var roster15 = (List<Player>)ViewBag.Under15Roster;
+        }
+        @if (roster15.Count > 0)
+        {
+            foreach (var player in roster15)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 15 Under Construction
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="conference16">
+        @{
+            var roster16C = (List<Player>)ViewBag.Under16CRoster;
+        }
+        @if (roster16C.Count > 0)
+        {
+            foreach (var player in roster16C)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 16 Conference Under Construction
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="premier16">
+        @{
+            var roster16P = (List<Player>)ViewBag.Under16PRoster;
+        }
+        @if (roster16P.Count > 0)
+        {
+            foreach (var player in roster16P)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 16 Premier Under Construction
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="conference18">
+        @{
+            var roster18C = (List<Player>)ViewBag.Under18CRoster;
+        }
+        @if (roster18C.Count > 0)
+        {
+            foreach (var player in roster18C)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 18 Conference Under Construction
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade in" id="premier18">
+        @{
+            var roster18P = (List<Player>)ViewBag.Under18PRoster;
+        }
+        @if (roster18P.Count > 0)
+        {
+            foreach (var player in roster18P)
+            {
+                <div class="page-header text-center">
+                    <div class="text-center">
+                        <a href="~/Content/Images/@player.ImgName" data-lightbox="players"><img src="~/Content/Images/@player.ImgName" alt="@player.Name" class="img-circle" style="height:120px; width:120px;" /></a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                            @player.Name
+                        </div>
+                        <div class="row">
+                            @player.Number
+                        </div>
+                        <div class="row">
+                            @player.Position
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="page-header text-center">
+                Under 18 Premier Under Construction
+            </div>
+        }
+    </div>
+</div>

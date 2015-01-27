@@ -1,0 +1,30 @@
+﻿@model Website.CheshireWire.Models.Fixture
+
+@{
+    ViewBag.Title = "Edit Fixture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" action="/Admin/EditFixture">
+    <div class="page-header">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                <li>@Html.TextBoxFor(m => m.Organisation)</li>
+                <li>@Html.TextBoxFor(m => m.OpponentName)</li>
+                <li>@Html.TextBoxFor(m => m.TipOff)</li>
+                <li>@Html.TextBoxFor(m => m.AddressLine1)</li>
+                <li>@Html.TextBoxFor(m => m.AddressLine2)</li>
+                <li>@Html.TextBoxFor(m => m.TownCity)</li>
+                <li>@Html.TextBoxFor(m => m.Postcode)</li>
+                <li>@Html.TextBoxFor(m => m.TeamName)</li>
+                <li>@Html.TextBoxFor(m => m.LeagueName)</li>
+                <li>@Html.TextBoxFor(m => m.TeamLogoUrl)</li>
+            </ul>
+            <input type="submit" value="Submit" />
+            <input type="submit" value="Cancel" formaction="~/Admin/ManageFixtures" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[News]
+(
+	Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Headline VARCHAR(100),
+	Body XML
+)

@@ -1,0 +1,353 @@
+﻿@{
+    ViewBag.Title = "Manage Fixtures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 13&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="active"><a href="#white" data-toggle="tab">White</a></li>
+            <li class="divider"></li>
+            <li><a href="#green" data-toggle="tab">Green</a></li>
+        </ul>
+    </li>
+    <li><a href="#under14" data-toggle="tab">Under 14</a></li>
+    <li><a href="#under15" data-toggle="tab">Under 15</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 16&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference16" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier16" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 18&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference18" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier18" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="panel-heading">
+        @Html.ActionLink("Add New Fixture", "AddFixture", "Admin", new object { }, new { @class = "btn-sm btn-success" })
+    </div>
+    <div class="tab-pane fade active in" id="white">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under13WhiteSchedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="green">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under13GreenSchedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under14">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under14Schedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under15">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under15Schedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference16">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under16CSchedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier16">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under16PSchedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference18">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under18CSchedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier18">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Organisation</th>
+                    <th>Opponent Name</th>
+                    <th>Tip Off</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Town City</th>
+                    <th>Postcode</th>
+                    <th>Team Name</th>
+                    <th>League Name</th>
+                    <th>Team Logo</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var fixture in ViewBag.Under18PSchedule)
+                {
+                    <tr>
+                        <td>@fixture.Organisation</td>
+                        <td>@fixture.OpponentName</td>
+                        <td>@fixture.TipOff</td>
+                        <td>@fixture.AddressLine1</td>
+                        <td>@fixture.AddressLine2</td>
+                        <td>@fixture.TownCity</td>
+                        <td>@fixture.Postcode</td>
+                        <td>@fixture.TeamName</td>
+                        <td>@fixture.LeagueName</td>
+                        <td>@fixture.TeamLogoUrl</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditFixture", "Admin", new { Id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Fixture", "RemoveFixture", "Admin", new { id = fixture.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CheshireWireDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Coaches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImgName" Type="varchar(max)" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fixtures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OpponentName" Type="varchar" MaxLength="50" />
+          <Property Name="Organisation" Type="varchar" MaxLength="50" />
+          <Property Name="TipOff" Type="datetime" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="50" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="50" />
+          <Property Name="TownCity" Type="varchar" MaxLength="50" />
+          <Property Name="Postcode" Type="varchar" MaxLength="8" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="ImgName" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Leagues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Headline" Type="varchar" MaxLength="100" />
+          <Property Name="Body" Type="xml" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="ImgName" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CheshireScore" Type="int" Nullable="false" />
+          <Property Name="OpponentScore" Type="int" Nullable="false" />
+          <Property Name="GameStory" Type="xml" />
+          <Property Name="BoxScore" Type="xml" />
+          <Property Name="ShotChartUrl" Type="varchar(max)" />
+          <Property Name="FixtureId" Type="int" Nullable="false" />
+          <Property Name="ImgName" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Teams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="LeagueId" Type="int" Nullable="false" StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityContainer Name="CheshireWireDataModelStoreContainer">
+          <EntitySet Name="Coaches" EntityType="Self.Coaches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fixtures" EntityType="Self.Fixtures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leagues" EntityType="Self.Leagues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CheshireWireDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CheshireWireDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Coaches" EntityType="CheshireWireDataModel.Coach" />
+          <EntitySet Name="Fixtures" EntityType="CheshireWireDataModel.Fixture" />
+          <EntitySet Name="Leagues" EntityType="CheshireWireDataModel.League" />
+          <EntitySet Name="News" EntityType="CheshireWireDataModel.News" />
+          <EntitySet Name="Players" EntityType="CheshireWireDataModel.Player" />
+          <EntitySet Name="Results" EntityType="CheshireWireDataModel.Result" />
+          <EntitySet Name="Teams" EntityType="CheshireWireDataModel.Team" />
+          <AssociationSet Name="LeagueTeam" Association="CheshireWireDataModel.LeagueTeam">
+            <End Role="League" EntitySet="Leagues" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="TeamPlayer" Association="CheshireWireDataModel.TeamPlayer">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Player" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="TeamCoach" Association="CheshireWireDataModel.TeamCoach">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Coach" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="TeamFixture" Association="CheshireWireDataModel.TeamFixture">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Fixture" EntitySet="Fixtures" />
+          </AssociationSet>
+          <AssociationSet Name="ResultFixture" Association="CheshireWireDataModel.ResultFixture">
+            <End Role="Result" EntitySet="Results" />
+            <End Role="Fixture" EntitySet="Fixtures" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImgName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="CheshireWireDataModel.TeamCoach" FromRole="Coach" ToRole="Team" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fixture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OpponentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Organisation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipOff" Type="DateTime" Precision="3" />
+          <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TownCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Postcode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ImgName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="CheshireWireDataModel.TeamFixture" FromRole="Fixture" ToRole="Team" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Result" Relationship="CheshireWireDataModel.ResultFixture" FromRole="Fixture" ToRole="Result" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Teams" Relationship="CheshireWireDataModel.LeagueTeam" FromRole="League" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Headline" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImgName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="CheshireWireDataModel.TeamPlayer" FromRole="Player" ToRole="Team" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CheshireScore" Type="Int32" Nullable="false" />
+          <Property Name="OpponentScore" Type="Int32" Nullable="false" />
+          <Property Name="GameStory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BoxScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShotChartUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImgName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fixture" Relationship="CheshireWireDataModel.ResultFixture" FromRole="Result" ToRole="Fixture" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="League" Relationship="CheshireWireDataModel.LeagueTeam" FromRole="Team" ToRole="League" />
+          <Property Name="LeagueId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="CheshireWireDataModel.TeamPlayer" FromRole="Team" ToRole="Player" />
+          <NavigationProperty Name="Coaches" Relationship="CheshireWireDataModel.TeamCoach" FromRole="Team" ToRole="Coach" />
+          <NavigationProperty Name="Fixtures" Relationship="CheshireWireDataModel.TeamFixture" FromRole="Team" ToRole="Fixture" />
+        </EntityType>
+        <Association Name="LeagueTeam">
+          <End Type="CheshireWireDataModel.League" Role="League" Multiplicity="1" />
+          <End Type="CheshireWireDataModel.Team" Role="Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="League">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="LeagueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamPlayer">
+          <End Type="CheshireWireDataModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="CheshireWireDataModel.Player" Role="Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamCoach">
+          <End Type="CheshireWireDataModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="CheshireWireDataModel.Coach" Role="Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeamFixture">
+          <End Type="CheshireWireDataModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="CheshireWireDataModel.Fixture" Role="Fixture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fixture">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ResultFixture">
+          <End Type="CheshireWireDataModel.Result" Role="Result" Multiplicity="0..1" />
+          <End Type="CheshireWireDataModel.Fixture" Role="Fixture" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CheshireWireDataModelStoreContainer" CdmEntityContainer="CheshireWireDataEntities">
+          <EntitySetMapping Name="Coaches">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.Coach">
+              <MappingFragment StoreEntitySet="Coaches">
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="ImgName" ColumnName="ImgName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fixtures">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.Fixture">
+              <MappingFragment StoreEntitySet="Fixtures">
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="ImgName" ColumnName="ImgName" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="TownCity" ColumnName="TownCity" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="TipOff" ColumnName="TipOff" />
+                <ScalarProperty Name="Organisation" ColumnName="Organisation" />
+                <ScalarProperty Name="OpponentName" ColumnName="OpponentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leagues">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.League">
+              <MappingFragment StoreEntitySet="Leagues">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Headline" ColumnName="Headline" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.Player">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="ImgName" ColumnName="ImgName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.Result">
+              <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="ImgName" ColumnName="ImgName" />
+                <ScalarProperty Name="ShotChartUrl" ColumnName="ShotChartUrl" />
+                <ScalarProperty Name="BoxScore" ColumnName="BoxScore" />
+                <ScalarProperty Name="GameStory" ColumnName="GameStory" />
+                <ScalarProperty Name="OpponentScore" ColumnName="OpponentScore" />
+                <ScalarProperty Name="CheshireScore" ColumnName="CheshireScore" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="CheshireWireDataModel.Team">
+              <MappingFragment StoreEntitySet="Teams">
+                <ScalarProperty Name="LeagueId" ColumnName="LeagueId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ResultFixture" TypeName="CheshireWireDataModel.ResultFixture" StoreEntitySet="Results">
+            <EndProperty Name="Fixture">
+              <ScalarProperty Name="Id" ColumnName="FixtureId" />
+            </EndProperty>
+            <EndProperty Name="Result">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <Condition ColumnName="FixtureId" IsNull="false" />
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

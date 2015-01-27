@@ -1,0 +1,34 @@
+﻿@model Website.CheshireWire.Models.Coach
+
+@{
+    ViewBag.Title = "Edit Coach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<form method="post" action="~/Admin/EditCoach">
+    <fieldset>
+        <div class="form-group">
+            @Html.HiddenFor(m => m.Id)
+        </div>
+        <div class="form-group">
+            Name: @Html.TextBoxFor(m => m.Name)
+        </div>
+        <div class="form-group">
+            Position: @Html.TextBoxFor(m => m.Position)
+        </div>
+        <div class="form-group">
+            TeamName: @Html.TextBoxFor(m => m.TeamName)
+        </div>
+        <div class="form-group">
+            LeagueName: @Html.TextBoxFor(m => m.LeagueName)
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="submit" class="btn btn-default" formaction="~/Admin/ManageCoaches">Cancel</button>
+        </div>
+    </fieldset>
+</form>

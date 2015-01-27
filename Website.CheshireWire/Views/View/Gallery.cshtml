@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div class="panel-body">
+    <ul class="list-inline">
+        @foreach (var imgPath in Directory.GetFiles(Server.MapPath("~/Content/Images/Gallery"), "*.jpg"))
+        {
+            var img = new FileInfo(imgPath);
+            <li>
+                <a href="@Url.Content(string.Format("~/Content/Images/Gallery/{0}", img.Name))" data-lightbox="gallery">
+                    <img style="height:200px; width:300px;" class="img-rounded" src="@Url.Content(string.Format("~/Content/Images/Gallery/{0}", img.Name))" alt="Gallery Image" />
+                </a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Admin Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<ul class="list-unstyled">
+    <li>@Html.ActionLink("Manage Players","ManagePlayers")</li>
+    <li>@Html.ActionLink("Manage Coaches","ManageCoaches")</li>
+    <li>@Html.ActionLink("Manage Results", "ManageResults")</li>
+    <li>@Html.ActionLink("Manage Fixtures","ManageFixtures")</li>
+    <li>@Html.ActionLink("Manage League Table", "ManageLeagueTable")</li>
+    <li>@Html.ActionLink("Manage Gallery","ManageGallery")</li>
+    <li>@Html.ActionLink("Manage Teams", "ManageTeams")</li>
+    <li>@Html.ActionLink("Manage Leagues", "Manage Leagues")</li>
+</ul>

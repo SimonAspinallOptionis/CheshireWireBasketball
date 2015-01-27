@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-app>
+    <div class="container">
+        <div class="panel-heading">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Cheshire Wire</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Home&nbsp;<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="~/Home/AboutUs">About Us</a></li>
+                                        <li><a href="~/Home/ContactUs">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Team&nbsp;<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="~/Team/Players">View Players</a></li>
+                                        <li><a href="~/Team/Coaches">View Coaches</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Game&nbsp;<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="~/Game/Results">View Results</a></li>
+                                        <li><a href="~/Game/Schedule">View Upcoming Schedule</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-success dropdown-toggle" , data-toggle="dropdown" aria-expanded="false">View&nbsp;<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="~/View/LeagueTable">League Table</a></li>
+                                        <li><a href="~/View/Gallery">View Gallery</a></li>
+                                        <li><a href="~/View/Video">View Videos</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        @*<ul class="nav navbar-nav" style="float:right">
+                            @{
+                                if (WebSecurity.IsAuthenticated)
+                                {
+                                    <li>
+                                        <div class="btn-group">
+                                            @Html.ActionLink("Admin Area", "Home", "Admin", new object { }, new { @class = "btn btn-success" })
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="btn-group">
+                                            @Html.ActionLink("Logout", "Logout", "Account", new object { }, new { @class = "btn btn-success" })
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <div class="btn-group">
+                                            @Html.ActionLink("Sign up", "Register", "Account", new object { }, new { @class = "btn btn-success" })
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="btn-group">
+                                            @Html.ActionLink("Login", "Login", "Account", new object { }, new { @class = "btn btn-success" })
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            @RenderBody()
+        </div>
+        <div class="navbar-fixed-bottom panel-footer">
+            <div class="container">
+                <p class="small" style="float:left">&copy; @DateTime.Today.Year - Cheshire Wire</p>
+                <p class="small" style="float:right">Designed by Real World Development</p>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lightbox")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

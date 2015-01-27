@@ -1,0 +1,242 @@
+﻿@{
+    ViewBag.Title = "Manage Players";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 13&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="active"><a href="#white" data-toggle="tab">White</a></li>
+            <li class="divider"></li>
+            <li><a href="#green" data-toggle="tab">Green</a></li>
+        </ul>
+    </li>
+    <li><a href="#under14" data-toggle="tab">Under 14</a></li>
+    <li><a href="#under15" data-toggle="tab">Under 15</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 16&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference16" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier16" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Under 18&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#conference18" data-toggle="tab">Conference</a></li>
+            <li class="divider"></li>
+            <li><a href="#premier18" data-toggle="tab">Premier</a></li>
+        </ul>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="panel-heading">
+        @Html.ActionLink("Add New Player", "AddPlayer", "Admin", new object { }, new { @class = "btn-sm btn-success" })
+    </div>
+    <div class="tab-pane fade active in" id="white">
+        <div class="panel-body">
+            <table class="table">
+                <tr class="success">
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under13WhiteRoster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="green">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under13GreenRoster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under14">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under14Roster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="under15">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under15Roster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference16">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under16CRoster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier16">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under16PRoster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="conference18">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under18CRoster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="premier18">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var player in ViewBag.Under18PRoster)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Number</td>
+                        <td>@player.Position</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlayer", "Admin", new { Id = player.Id }, new { @class = "btn-sm btn-default" })
+                            @Html.ActionLink("Remove Player", "RemovePlayer", "Admin", new { id = player.Id }, new { @class = "btn-sm btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+

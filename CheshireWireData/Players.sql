@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Players]
+(
+	Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Name VARCHAR(50),
+	[Number] INT,
+	Position VARCHAR(50),
+	TeamId INT NOT NULL,
+	ImgName VARCHAR(MAX)
+)

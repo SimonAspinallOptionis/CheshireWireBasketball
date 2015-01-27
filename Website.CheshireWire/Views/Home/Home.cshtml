@@ -1,0 +1,302 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBag.Title</h2>
+</div>
+<div class="panel-body">
+    <h3>Hello World!</h3>
+</div>
+
+@*<ul class="nav nav-tabs">
+    <li class="active"><a href="#welcome" data-toggle="tab">Welcome</a></li>
+    <li><a href="#news" data-toggle="tab">News</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Next Fixture&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#under13WhiteFixture" data-toggle="tab">Under13 White</a></li>
+            <li class="divider"></li>
+            <li><a href="#under13GreenFixture" data-toggle="tab">Under13 Green</a></li>
+            <li class="divider"></li>
+            <li><a href="#under14Fixture" data-toggle="tab">Under 14</a></li>
+            <li class="divider"></li>
+            <li><a href="#under15Fixture" data-toggle="tab">Under 15</a></li>
+            <li class="divider"></li>
+            <li><a href="#under16CFixture" data-toggle="tab">Under 16 Conf</a></li>
+            <li class="divider"></li>
+            <li><a href="#under16PFixture" data-toggle="tab">Under16 Prem</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18CFixture" data-toggle="tab">Under 18 Conf</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18PFixture" data-toggle="tab">Under18 Prem</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            Previous Result&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#under13WhiteResult" data-toggle="tab">Under13 White</a></li>
+            <li class="divider"></li>
+            <li><a href="#under13GreenResult" data-toggle="tab">Under13 Green</a></li>
+            <li class="divider"></li>
+            <li><a href="#under14Result" data-toggle="tab">Under 14</a></li>
+            <li class="divider"></li>
+            <li><a href="#under15Result" data-toggle="tab">Under 15</a></li>
+            <li class="divider"></li>
+            <li><a href="#under16CResult" data-toggle="tab">Under 16 Conf</a></li>
+            <li class="divider"></li>
+            <li><a href="#under16PResult" data-toggle="tab">Under 16 Prem</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18CResult" data-toggle="tab">Under 18 Conf</a></li>
+            <li class="divider"></li>
+            <li><a href="#under18PResult" data-toggle="tab">Under 18 Prem</a></li>
+        </ul>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="welcome">
+        <div class="page-header">
+            <b>Welcome</b>
+        </div>
+        <div class="panel-body">
+            <div class="text-left">
+                Welcome to the Cheshire Wire White website
+            </div>
+            <div class="text-left">
+                This website holds all the information you might need to know about Cheshire Wire White!
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="news">
+        @foreach (var story in ViewBag.NewsCollection)
+        {
+            <div class="page-header text-capitalize">
+                <b>@story.Headline</b>
+            </div>
+            <div class="panel-body text-left">
+                @story.Body
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade" id="under13WhiteFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under13WhiteFixture.Organisation&nbsp;@ViewBag.Under13WhiteFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13WhiteFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13WhiteFixture.AddressLine1,&nbsp;@ViewBag.Under13WhiteFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under13GreenFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under13GreenFixture.Organisation&nbsp;@ViewBag.Under13GreenFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13GreenFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13GreenFixture.AddressLine1,&nbsp;@ViewBag.Under13GreenFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under14Fixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under14Fixture.Organisation&nbsp;@ViewBag.Under14Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under14Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under14Fixture.AddressLine1,&nbsp;@ViewBag.Under14Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under15Fixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under15Fixture.Organisation&nbsp;@ViewBag.Under15Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under15Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under15Fixture.AddressLine1,&nbsp;@ViewBag.Under15Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under16CFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under16CFixture.Organisation&nbsp;@ViewBag.Under16CFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under16CFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under16CFixture.AddressLine1,&nbsp;@ViewBag.Under16CFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under16PFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under16PFixture.Organisation&nbsp;@ViewBag.Under16PFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under16PFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under16PFixture.AddressLine1,&nbsp;@ViewBag.Under16PFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under18CFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under18CFixture.Organisation&nbsp;@ViewBag.Under18CFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under18CFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under18CFixture.AddressLine1,&nbsp;@ViewBag.Under18CFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under18PFixture">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under18PFixture.Organisation&nbsp;@ViewBag.Under18PFixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under18PFixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under18PFixture.AddressLine1,&nbsp;@ViewBag.Under18PFixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under13WhiteResult">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under13WhiteResult.Fixture.Organisation&nbsp;@ViewBag.Under13WhiteResult.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under13WhiteResult.CheshireScore : @ViewBag.Under13WhiteResult.OpponentScore
+            @if (ViewBag.Under13WhiteResult.CheshireScore > ViewBag.Under13WhiteResult.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13WhiteResult.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13WhiteResult.Fixture.AddressLine1,&nbsp;@ViewBag.Under18PResult.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under13GreenResult">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under13GreenResult.Fixture.Organisation&nbsp;@ViewBag.Under13GreenResult.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under13GreenResult.CheshireScore : @ViewBag.Under13GreenResult.OpponentScore
+            @if (ViewBag.Under13GreenResult.CheshireScore > ViewBag.Under13GreenResult.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under13GreenResult.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under13GreenResult.Fixture.AddressLine1,&nbsp;@ViewBag.Under13GreenResult.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under14Result">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under14Result.Fixture.Organisation&nbsp;@ViewBag.Under14Result.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under14Result.CheshireScore : @ViewBag.Under14Result.OpponentScore
+            @if (ViewBag.Under14Result.CheshireScore > ViewBag.Under14Result.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under14Result.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under14Result.Fixture.AddressLine1,&nbsp;@ViewBag.Under14Result.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under15Result">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under15Result.Fixture.Organisation&nbsp;@ViewBag.Under15Result.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under15Result.CheshireScore : @ViewBag.Under15Result.OpponentScore
+            @if (ViewBag.Under15Result.CheshireScore > ViewBag.Under15Result.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under15Result.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under15Result.Fixture.AddressLine1,&nbsp;@ViewBag.Under15Result.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under16CResult">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under16CResult.Fixture.Organisation&nbsp;@ViewBag.Under16CResult.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under16CResult.CheshireScore : @ViewBag.Under16CResult.OpponentScore
+            @if (ViewBag.Under16CResult.CheshireScore > ViewBag.Under16CResult.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under16CResult.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under16CResult.Fixture.AddressLine1,&nbsp;@ViewBag.Under16CResult.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under16PResult">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under16PResult.Fixture.Organisation&nbsp;@ViewBag.Under16PResult.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under16PResult.CheshireScore : @ViewBag.Under16PResult.OpponentScore
+            @if (ViewBag.Under16PResult.CheshireScore > ViewBag.Under16PResult.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under16PResult.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under16PResult.Fixture.AddressLine1,&nbsp;@ViewBag.Under16PResult.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under18CResult">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under18CResult.Fixture.Organisation&nbsp;@ViewBag.Under18CResult.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under18CResult.CheshireScore : @ViewBag.Under18CResult.OpponentScore
+            @if (ViewBag.Under18CResult.CheshireScore > ViewBag.Under18CResult.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under18CResult.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under18CResult.Fixture.AddressLine1,&nbsp;@ViewBag.Under18CResult.Fixture.TownCity
+        </div>
+    </div>
+    <div class="tab-pane fade" id="under18PResult">
+        <div class="page-header text-capitalize">
+            <b>@ViewBag.Under18PResult.Fixture.Organisation&nbsp;@ViewBag.Under18PResult.Fixture.OpponentName</b>
+        </div>
+        <div class="panel-body">
+            <b>Final Score:</b>&nbsp;@ViewBag.Under18PResult.CheshireScore : @ViewBag.Under18PResult.OpponentScore
+            @if (ViewBag.Under18PResult.CheshireScore > ViewBag.Under18PResult.OpponentScore)
+            {
+                <span>W</span>
+            }
+            else
+            {
+                <span>L</span>
+            }<br />
+            <b>Tip Off:</b>&nbsp;@ViewBag.Under18PResult.Fixture.TipOff<br />
+            <b>Location:</b>&nbsp;@ViewBag.Under18PResult.Fixture.AddressLine1,&nbsp;@ViewBag.Under18PResult.Fixture.TownCity
+        </div>
+    </div>
+</div>*@
